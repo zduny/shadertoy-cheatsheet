@@ -84,7 +84,7 @@ bool sphereIntersectsAABB(in Sphere sphere, in AABB aabb,
                           out vec3 intersection) {
   intersection = clamp(sphere.origin, aabb.min, aabb.max);
 
-  return is_position_inside_sphere(intersection, sphere);
+  return isPositionInsideSphere(intersection, sphere);
 }
 
 bool sphereIntersectsSphere(in Sphere a, in Sphere b, out vec3 intersection) {
