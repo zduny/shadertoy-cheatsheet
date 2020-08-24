@@ -3,7 +3,7 @@ void drawDisk(in vec2 fragmentCoordinates, in vec2 center, in float radius,
   float d = distance(fragmentCoordinates, center);
   float a = 1.0 - clamp(d - radius + 0.5, 0.0, 1.0);
 
-  output_color = mix(outputColor, color, a * color.a);
+  outputColor = mix(outputColor, color, a * color.a);
 }
 
 float sdSegment(in vec2 point, in vec2 a, in vec2 b) {
@@ -15,9 +15,9 @@ float sdSegment(in vec2 point, in vec2 a, in vec2 b) {
   return length(pa - ba * h);
 }
 
-void drawSegment(in vec2 fragmentCoordinates, in vec2 a, in vec2 b,
+void drawSegment(in vec2 fragmentCoordinates, in vec2 p0, in vec2 p1,
                  in float thickness, in vec4 color, inout vec4 outputColor) {
-  float d = sdSegment(fragmentCoordinates, a, b);
+  float d = sdSegment(fragmentCoordinates, p0, p1);
   float a = 1.0 - clamp(d - thickness / 2.0 + .5, 0.0, 1.0);
 
   outputColor = mix(outputColor, color, a * color.a);
